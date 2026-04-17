@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  title: Retro AI Companion API
+  version: 0.1.0
+servers:
+  - url: https://retro-ai.example.com
+paths:
+  /api/ai/chat:
+    post:
+      summary: Stream companion chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [companionId, text]
+              properties:
+                companionId:
+                  type: string
+                  format: uuid
+                text:
+                  type: string
+                explain:
+                  type: boolean
+      responses:
+        "200":
+          description: SSE stream
+  /api/companions/{id}/actions:
+    post:
+      summary: Apply action on companion
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Action accepted
+  /api/analytics/weekly:
+    get:
+      summary: Weekly AI summary and metrics
+      responses:
+        "200":
+          description: Analytics payload

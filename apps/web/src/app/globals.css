@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #090d16;
+  --card: #121827;
+  --text: #d7f9ff;
+  --accent: #30f5d2;
+  --accent-alt: #ff3d81;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(48, 245, 210, 0.2), transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(255, 61, 129, 0.2), transparent 40%),
+    linear-gradient(160deg, #03050c 0%, var(--bg) 60%, #0e1526 100%);
+  color: var(--text);
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.crt {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+.boot-bar {
+  width: 0;
+  animation: bootGrow 1.8s ease-out forwards;
+}
+
+@keyframes bootGrow {
+  to {
+    width: 100%;
+  }
+}

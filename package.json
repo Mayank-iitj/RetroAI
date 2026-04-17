@@ -1,0 +1,22 @@
+{
+  "name": "retro-ai-companion-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "test": "npm run test -w apps/web",
+    "test:e2e": "npm run test:e2e -w apps/web",
+    "lint": "npm run lint -w apps/web",
+    "db:generate": "npm run db:generate -w apps/web",
+    "db:migrate": "npm run db:migrate -w apps/web",
+    "changelog": "node scripts/generate-changelog.mjs"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  }
+}
